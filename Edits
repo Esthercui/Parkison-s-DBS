@@ -1,0 +1,235 @@
+BAYESIAN OPTIMIZATION
+​​# =========================
+# FIXED Bayesian Optimization (Stage 1)
+# =========================
+
+def run_bo(cost_flat: np.ndarray, budget:int, seed:int, n_init:int=None, xi:float=0.01):
+    """
+    BO on a DISCRETE grid by modeling (fi,ai,pwi) as continuous in [0,1]^3.
+    IMPORTANT FIX:
+      - ensure n_init < budget
+    """
+    from sklearn.gaussian_process import GaussianProcessRegressor
+    from sklearn.gaussian_process.kernels import Matern, ConstantKernel
+    from scipy.stats import norm
+    import warnings
+    from sklearn.exceptions import ConvergenceWarning
+
+    warnings.filterwarnings("ignore", category=ConvergenceWarning)
+
+    rng = np.random.default_rng(seed)
+
+    if n_init is None:
+        n_init = max(8, budget // 4)
+    n_init = min(n_init, budget - 1)
+    if n_init < 2:
+        n_init = 2
+
+    X_all = []
+    y_all = []
+    idx_all = []
+    for fi in range(Nf):
+        for ai in range(Na):
+            for pwi in range(Npw):
+                X_all.append([fi/(Nf-1), ai/(Na-1), pwi/(Npw-1)])
+                idx_all.append((fi, ai, pwi))
+                y_all.append(float(cost_flat[flat_index(fi,ai,pwi)]))
+
+    X_all = np.array(X_all, dtype=float)
+    y_all = np.array(y_all, dtype=float)
+
+    remaining = np.arange(len(idx_all))
+    rng.shuffle(remaining)
+
+    obs_idx = list(remaining[:n_init])
+    remaining = remaining[n_init:]
+
+    X_obs = X_all[obs_idx].copy()
+    y_obs = y_all[obs_idx].copy()
+    evals = [(idx_all[i][0], idx_all[i][1], idx_all[i][2], float(y_all[i])) for i in obs_idx]
+
+    def EI(mu, sigma, best):
+        sigma = np.maximum(sigma, 1e-12)
+        imp = best - mu - xi
+        Z = imp / sigma
+        return imp * norm.cdf(Z) + sigma * norm.pdf(Z)
+
+    while len(evals) < budget and len(remaining) > 0:
+        kernel = ConstantKernel(1.0, constant_value_bounds=(1e-3, 1e3)) * Matern(nu=2.5)
+        gp = GaussianProcessRegressor(
+            kernel=kernel,
+            alpha=1e-10,
+            normalize_y=True,
+            random_state=seed,
+            n_restarts_optimizer=2
+        )
+        gp.fit(X_obs, y_obs)
+
+        X_rem = X_all[remaining]
+        mu, std = gp.predict(X_rem, return_std=True)
+        best = float(np.min(y_obs))
+        ei = EI(mu, std, best)
+
+        pick_local = int(np.argmax(ei))
+        pick = int(remaining[pick_local])
+        remaining = np.delete(remaining, pick_local)
+
+        X_obs = np.vstack([X_obs, X_all[pick]])
+        y_obs = np.append(y_obs, y_all[pick])
+
+        fi, ai, pwi = idx_all[pick]
+        evals.append((fi, ai, pwi, float(y_all[pick])))
+
+    return evals
+
+
+
+##STAGE ONE SWEEP CODE
+import numpy as np
+
+BUDGETS = [10, 20, 30, 40, 100]
+SEEDS_SWEEP = 30   # use 30 for stable curves
+
+stage1_methods = {
+    "Random": run_random,
+    "GA": run_ga,
+    "BO": run_bo,
+    "CMA-ES": run_cma_es,
+    "Surrogate (Exact)": run_surrogate_exact,
+    "QAOA (p=1)": lambda cf, b, s: run_surrogate_qaoa(cf, b, s, p_layers=1, shots=128, maxiter=15, max_pairs=50),
+}
+
+stage1_budget_results = {}
+
+for B in BUDGETS:
+    print(f"\n{'='*60}\nStage 1 BUDGET = {B}\n{'='*60}")
+    stage1_budget_results[B] = {}
+    for name, fn in stage1_methods.items():
+        finals = []
+        regrets = []
+        for s in range(SEEDS_SWEEP):
+            evals = fn(cost_flat, B, s)
+            best = min([c for *_, c in evals])
+            finals.append(best)
+            regrets.append(best - ground_truth["cost_star"])
+        stage1_budget_results[B][name] = {
+            "mean_final_cost": float(np.mean(finals)),
+            "mean_regret": float(np.mean(regrets)),
+            "std_regret": float(np.std(regrets)),
+        }
+        print(f"{name:20s} mean_regret={np.mean(regrets):.4f}  std_regret={np.std(regrets):.4f}")
+
+
+#FIGURE 1
+import matplotlib.pyplot as plt
+import numpy as np
+
+budgets = np.array(BUDGETS)
+
+plot_methods = ["Random", "BO", "CMA-ES", "QAOA (p=1)", "GA"]
+
+plt.figure(figsize=(8.5, 5.2))
+for name in plot_methods:
+    means = np.array([stage1_budget_results[B][name]["mean_regret"] for B in budgets])
+    stds  = np.array([stage1_budget_results[B][name]["std_regret"]  for B in budgets])
+
+    plt.errorbar(
+        budgets,
+        means,
+        yerr=stds,
+        marker="o",
+        capsize=3,
+        linewidth=2,
+        label=name
+    )
+
+plt.xticks(budgets)
+plt.xlabel("Evaluation Budget B")
+plt.ylabel("Mean Regret vs Ground Truth")
+plt.title("Stage 1: Performance vs Budget (Mean ± Std)")
+plt.grid(True, alpha=0.25)
+plt.legend(fontsize=9)
+plt.tight_layout()
+plt.show()
+
+
+#FIGURE 2
+import matplotlib.pyplot as plt
+import numpy as np
+
+chosen_B = 40   # change to 100 if you want
+labels = list(stage1_budget_results[chosen_B].keys())
+means = np.array([stage1_budget_results[chosen_B][k]["mean_regret"] for k in labels])
+stds  = np.array([stage1_budget_results[chosen_B][k]["std_regret"]  for k in labels])
+
+plt.figure(figsize=(9, 4.8))
+x = np.arange(len(labels))
+plt.bar(x, means, yerr=stds, capsize=3)
+plt.xticks(x, labels, rotation=25, ha="right")
+plt.ylabel(f"Mean Regret at B={chosen_B}")
+plt.title(f"Stage 1: Optimizer Performance at B={chosen_B}")
+plt.tight_layout()
+plt.show()
+
+
+
+#FIGURE 3
+import matplotlib.pyplot as plt
+
+plt.figure(figsize=(6.5, 5.2))
+plt.scatter(
+    energy_flat,
+    beta_ratio_flat,
+    s=8,
+    alpha=0.25,
+    label="All settings"
+)
+
+plt.scatter(
+    energy_flat[pareto_idx],
+    beta_ratio_flat[pareto_idx],
+    s=12,
+    alpha=0.7,
+    label="Pareto front"
+)
+
+plt.scatter(
+    [knee["energy"]],
+    [knee["beta_ratio"]],
+    s=120,
+    marker="*",
+    label="Knee point"
+)
+
+plt.xlabel("Energy Proxy")
+plt.ylabel("Normalized Beta Power")
+plt.title("Stage 1 Pareto Front with Knee Point")
+plt.legend()
+plt.tight_layout()
+plt.show()
+
+
+#FIGURE 4
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Find nearest amplitude index to knee A
+A_target = knee["A"]
+ai_fixed = int(np.argmin(np.abs(A_VALS - A_target)))
+
+# Build 2D slice: rows = PW, cols = frequency
+cost_slice = np.zeros((Npw, Nf))
+for fi in range(Nf):
+    for pwi in range(Npw):
+        flat = flat_index(fi, ai_fixed, pwi)
+        cost_slice[pwi, fi] = cost_flat[flat]
+
+plt.figure(figsize=(8, 4.8))
+im = plt.imshow(cost_slice, aspect="auto", origin="lower")
+plt.colorbar(im, label="Scalar Cost")
+plt.xlabel("Frequency index")
+plt.ylabel("Pulse-width index")
+plt.title(f"Stage 1 Cost Landscape (A ≈ {A_target:.3f})")
+plt.tight_layout()
+plt.show()
+
