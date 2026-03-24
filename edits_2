@@ -1,0 +1,245 @@
+# =========================
+# Stage 2 budget sweep results collector
+# =========================
+
+BUDGETS = [10, 20, 30, 40]   # add 100 if you want
+SEEDS_SWEEP = 30             # reduce if QAOA gets too slow
+
+stage2_methods = {
+    "Random": run_random,
+    "GA": run_ga,
+    "BO": run_bo if USE_BAYES_OPT else None,
+    "CMA-ES": run_cma_es if USE_CMA_ES else None,
+    "Surrogate (Exact)": run_surrogate_exact,
+    "QAOA (p=1)": lambda cf, b, s: run_surrogate_qaoa(cf, b, s, p_layers=1),
+    # optional if p=2 is stable:
+    # "QAOA (p=2)": lambda cf, b, s: run_surrogate_qaoa(cf, b, s, p_layers=2),
+}
+
+stage2_budget_results = {}
+
+for B in BUDGETS:
+    print(f"\n{'='*60}\nSTAGE 2 BUDGET = {B}\n{'='*60}")
+    stage2_budget_results[B] = {}
+    for name, fn in stage2_methods.items():
+        if fn is None:
+            continue
+        finals = []
+        regrets = []
+        for s in range(SEEDS_SWEEP):
+            evals = fn(cost_flat, B, s)
+            best = min([e[-1] for e in evals])   # last entry is cost
+            finals.append(best)
+            regrets.append(best - ground_truth["cost_star"])
+        stage2_budget_results[B][name] = {
+            "mean_final_cost": float(np.mean(finals)),
+            "mean_regret": float(np.mean(regrets)),
+            "std_regret": float(np.std(regrets)),
+        }
+        print(f"{name:20s} mean_regret={np.mean(regrets):.4f}  std_regret={np.std(regrets):.4f}")
+
+
+
+
+
+#REGRET VS BUDGET FIGURE 
+import numpy as np
+import matplotlib.pyplot as plt
+
+budgets = np.array(BUDGETS)
+
+# Choose the methods you actually want shown
+plot_methods = ["Random", "BO", "CMA-ES", "QAOA (p=1)", "GA"]
+
+plt.figure(figsize=(8.5, 5.2))
+
+for name in plot_methods:
+    if name not in stage2_budget_results[budgets[0]]:
+        continue
+    means = np.array([stage2_budget_results[B][name]["mean_regret"] for B in budgets])
+    stds  = np.array([stage2_budget_results[B][name]["std_regret"]  for B in budgets])
+
+    plt.errorbar(
+        budgets,
+        means,
+        yerr=stds,
+        marker="o",
+        capsize=3,
+        linewidth=2,
+        label=name
+    )
+
+plt.xticks(budgets)
+plt.xlabel("Evaluation Budget B")
+plt.ylabel("Mean Regret vs Ground Truth")
+plt.title("Stage 2: Performance vs Budget (Mean ± Std)")
+plt.grid(True, alpha=0.25)
+plt.legend(fontsize=9)
+plt.tight_layout()
+plt.show()
+
+
+
+
+
+#BAR CHART AT CHOSEN BUDGET
+import numpy as np
+import matplotlib.pyplot as plt
+
+chosen_B = 40   # change to 100 if you rerun it
+labels = list(stage2_budget_results[chosen_B].keys())
+means = np.array([stage2_budget_results[chosen_B][k]["mean_regret"] for k in labels])
+stds  = np.array([stage2_budget_results[chosen_B][k]["std_regret"]  for k in labels])
+
+plt.figure(figsize=(9, 4.8))
+x = np.arange(len(labels))
+plt.bar(x, means, yerr=stds, capsize=3)
+plt.xticks(x, labels, rotation=25, ha="right")
+plt.ylabel(f"Mean Regret at B={chosen_B}")
+plt.title(f"Stage 2: Optimizer Performance at B={chosen_B}")
+plt.tight_layout()
+plt.show()
+
+
+
+
+
+#PARETO FRONT WITH KNEE POINT (FEASIBLE ONLY)
+import matplotlib.pyplot as plt
+import numpy as np
+
+feas = feasible_flat == 1
+
+plt.figure(figsize=(6.5, 5.2))
+plt.scatter(
+    energy_flat[feas],
+    beta_ratio_flat[feas],
+    s=8,
+    alpha=0.25,
+    label="Feasible settings"
+)
+
+plt.scatter(
+    energy_flat[pareto_idx],
+    beta_ratio_flat[pareto_idx],
+    s=12,
+    alpha=0.8,
+    label="Pareto front"
+)
+
+plt.scatter(
+    [knee["energy"]],
+    [knee["beta_ratio"]],
+    s=140,
+    marker="*",
+    label="Knee point"
+)
+
+plt.xlabel("Energy Proxy")
+plt.ylabel("Normalized Beta Power")
+plt.title("Stage 2 Pareto Front with Knee Point")
+plt.legend()
+plt.tight_layout()
+plt.show()
+
+
+
+#FEASIBLE VS INFEASIBLE SETTINGS
+import matplotlib.pyplot as plt
+
+total = N_TOTAL
+feasible_count = int((feasible_flat == 1).sum())
+infeasible_count = total - feasible_count
+
+labels = ["Feasible", "Infeasible"]
+values = [feasible_count, infeasible_count]
+
+plt.figure(figsize=(5.5, 4.5))
+plt.bar(labels, values)
+plt.ylabel("Number of Settings")
+plt.title("Stage 2 Feasibility Under Charge-Density Constraint")
+plt.tight_layout()
+plt.show()
+
+
+
+#RING VS. DIRECTIONLA FEASIBLE POINTS 
+import matplotlib.pyplot as plt
+import numpy as np
+
+ring_idx = []
+dir_idx = []
+
+for flat in np.where(feasible_flat == 1)[0]:
+    fi, ai, pwi, mi = unflat_index(int(flat))
+    if mi == 0:
+        ring_idx.append(flat)
+    else:
+        dir_idx.append(flat)
+
+ring_idx = np.array(ring_idx, dtype=int)
+dir_idx = np.array(dir_idx, dtype=int)
+
+plt.figure(figsize=(6.8, 5.2))
+plt.scatter(
+    energy_flat[ring_idx],
+    beta_ratio_flat[ring_idx],
+    s=8,
+    alpha=0.25,
+    label="Ring"
+)
+plt.scatter(
+    energy_flat[dir_idx],
+    beta_ratio_flat[dir_idx],
+    s=8,
+    alpha=0.25,
+    label="Directional"
+)
+plt.scatter(
+    [knee["energy"]],
+    [knee["beta_ratio"]],
+    s=140,
+    marker="*",
+    label="Knee point"
+)
+
+plt.xlabel("Energy Proxy")
+plt.ylabel("Normalized Beta Power")
+plt.title("Stage 2 Feasible Settings by Contact Mode")
+plt.legend()
+plt.tight_layout()
+plt.show()
+
+
+
+#HEATMAP SLICE
+import numpy as np
+import matplotlib.pyplot as plt
+
+# nearest indices to knee settings
+A_target = knee["A"]
+mode_target = knee["mode"]
+ai_fixed = int(np.argmin(np.abs(A_VALS - A_target)))
+mi_fixed = MODE_NAMES.index(mode_target)
+
+cost_slice = np.zeros((Npw, Nf))
+for fi in range(Nf):
+    for pwi in range(Npw):
+        flat = flat_index(fi, ai_fixed, pwi, mi_fixed)
+        cost_slice[pwi, fi] = cost_flat[flat]
+
+plt.figure(figsize=(8, 4.8))
+im = plt.imshow(cost_slice, aspect="auto", origin="lower")
+plt.colorbar(im, label="Scalar Cost")
+plt.xlabel("Frequency index")
+plt.ylabel("Pulse-width index")
+plt.title(f"Stage 2 Cost Landscape (A ≈ {A_target:.3f}, mode = {mode_target})")
+plt.tight_layout()
+plt.show()
+
+
+
+
+
+
+      
