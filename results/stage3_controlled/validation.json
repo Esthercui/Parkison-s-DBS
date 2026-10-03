@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "runs": 720,
+  "observations": 18000,
+  "all_feasible": true,
+  "all_budgets_complete": true,
+  "wall_seconds": 88.84053301811218
+}

@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "baseline": "b5e2468320d437bce5ddec8025ba409e5a26dc5b",
+  "stage1_stage2_readme_byte_identical": true,
+  "model_fit_metadata_cells_byte_identical": true,
+  "objective_functions_ast_identical": true,
+  "optimizer_function_defaults_ast_identical": true,
+  "pilot_trace_repeatability": "12/12 exact matches",
+  "minimum_masks": [
+    38180
+  ],
+  "scope": "domain correction plus disclosed execution/reporting bookkeeping",
+  "experiment_commit": "e8c7eaa208203bfd3708f163edf64977fff8e326",
+  "published_identical_engine": "6c5d58ea45fb2327cf88cf87af59464df8e73bb2"
+}

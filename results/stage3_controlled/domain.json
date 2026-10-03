@@ -1,0 +1,55 @@
+{
+  "baseline_commit": "b5e2468320d437bce5ddec8025ba409e5a26dc5b",
+  "beta_definition": "Original fitted c0 + c1*A_eff + c2*A_eff**2, including c0",
+  "beta_limit": 0.8228585,
+  "total_masks": 65536,
+  "exactly_six_masks": 8008,
+  "admissible_masks": 6881,
+  "percentage_full_space": 10.49957275390625,
+  "best_mask": 38180,
+  "best_mask_binary_msb_first": "1001010100100100",
+  "best_bits_contact_0_first": [
+    0,
+    0,
+    1,
+    0,
+    0,
+    1,
+    0,
+    0,
+    1,
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    1
+  ],
+  "active_contacts_zero_based": [
+    2,
+    5,
+    8,
+    10,
+    12,
+    15
+  ],
+  "beta_ratio": 0.8187975018236102,
+  "A_eff": 1.57,
+  "total_cost": 1.5690394714699,
+  "objective_components": {
+    "efficacy_without_constant_c0": -0.12496052853009998,
+    "count": 1.08,
+    "energy": 0.09325000000000001,
+    "risk": 0.154,
+    "overlap": 0.36674999999999996,
+    "charge_density": 0.0
+  },
+  "omitted_constant_c0": 0.9437580303537102,
+  "fit_coefficients": [
+    0.9437580303537102,
+    -0.11458817038088676,
+    0.022290112770454024
+  ],
+  "simulator_calls_for_fit_including_baseline": 42
+}

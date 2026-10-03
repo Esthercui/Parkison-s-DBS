@@ -22,12 +22,47 @@ BASELINE = "b5e2468320d437bce5ddec8025ba409e5a26dc5b"
 
 
 def execute_cell(index):
-    exec(compile("".join(notebook["cells"][index]["source"]),
-                 f"stage3.ipynb:cell{index}", "exec"), globals())
+    source = "".join(notebook["cells"][index]["source"])
+    if index == 15:
+        # Matplotlib renamed this display-only keyword; notebook math is untouched.
+        source = source.replace("labels=labels", "tick_labels=labels")
+    exec(compile(source, f"stage3.ipynb:cell{index}", "exec"), globals())
 
 
 def write_json(path, value):
     path.write_text(json.dumps(value, indent=2, allow_nan=False) + "\n")
+
+
+def export_analysis(out, recorded_rows):
+    global rows, stage3_results
+    distribution = []
+    for budget in BUDGETS:
+        for method in stage3_methods:
+            subset = [r for r in recorded_rows if r[0] == method and r[1] == budget]
+            values = np.array([r[4] for r in subset])
+            distribution.append({"Budget": budget, "Method": method,
+                "Best Regret": float(values.min()), "Median Regret": float(np.median(values)),
+                "Feasible Completed Runs": len(subset), "Runs": len(subset),
+                "Feasible Success Rate": 1.0})
+    rows = recorded_rows
+    assembly = "".join(notebook["cells"][8]["source"]).split("stage3_results = {}", 1)[1]
+    exec("stage3_results = {}" + assembly, globals())
+    for index in (9, 10, 11):
+        execute_cell(index)
+    stage3_summary_df.to_csv(out / "summary.csv", index=False)
+    pd.DataFrame(distribution).to_csv(out / "distribution.csv", index=False)
+    sig_df.to_csv(out / "qaoa_statistics.csv", index=False)
+    ranking = stage3_summary_df.sort_values(["Budget", "Mean Regret"])
+    ranking.to_csv(out / "ranking.csv", index=False)
+    # Original mean ± population SD plot and B=30 distribution plot.
+    import matplotlib.pyplot as plt
+    plt.show = lambda: None
+    for index, name in ((13, "regret_vs_budget"), (15, "regret_distribution_B30")):
+        execute_cell(index)
+        plt.savefig(out / (name + ".png"), dpi=180)
+        plt.savefig(out / (name + ".svg"))
+        plt.close("all")
+    print(f"Complete: {out}", flush=True)
 
 
 def main():
@@ -36,6 +71,7 @@ def main():
     parser.add_argument("--output", type=Path, default=ROOT / "results/stage3_controlled")
     parser.add_argument("--jobs", type=int, default=25, help="Execution workers only; original default 25")
     parser.add_argument("--validate-only", action="store_true")
+    parser.add_argument("--report-only", action="store_true", help="Validate saved observations and regenerate tables/figures")
     parser.add_argument("--pilot", action="store_true", help="Six methods, B=10, seeds 0/1; not final evidence")
     args = parser.parse_args()
     out = args.output.resolve()
@@ -48,6 +84,30 @@ def main():
     for filename in ("README.md", "stage1.ipynb", "stage2.ipynb"):
         assert (ROOT / filename).read_bytes() == subprocess.check_output(
             ["git", "show", f"{BASELINE}:{filename}"], cwd=ROOT)
+    if args.report_only:
+        for index in (0, 5, 6, 7):
+            execute_cell(index)
+        setup = "".join(notebook["cells"][8]["source"]).split('print(f"Launching')[0]
+        exec(compile(setup, "stage3.ipynb:cell8_setup", "exec"), globals())
+        domain = json.loads((out / "domain.json").read_text())
+        records = [json.loads(line) for line in (out / "runs.jsonl").read_text().splitlines()]
+        manifest = json.loads((out / "manifest.json").read_text())
+        assert manifest["source_sha256"]["stage3.ipynb"] == hashlib.sha256((ROOT / "stage3.ipynb").read_bytes()).hexdigest()
+        with np.load(out / "oracle.npz") as saved:
+            assert np.array_equal(saved["admissible"], (saved["active_count"] == 6) & (saved["beta_ratio"] <= BETA_RATIO_LIMIT))
+            assert saved["cost"][saved["admissible"]].min() == domain["total_cost"]
+            for row in records:
+                obs = row["observations"]
+                assert len(obs) == row["budget"] == len({m for m, _ in obs})
+                assert all(saved["admissible"][m] and saved["cost"][m] == c for m, c in obs)
+                assert min(c for _, c in obs) == row["best_cost"]
+                assert row["regret"] == row["best_cost"] - domain["total_cost"]
+        assert {(r["method"], r["budget"], r["seed"]) for r in records} == set(jobs)
+        assert len(records) == len(jobs)
+        rows = [(r["method"], r["budget"], r["seed"], r["best_cost"], r["regret"], r["observations"]) for r in records]
+        rows.sort(key=lambda r: (r[1], list(stage3_methods).index(r[0]), r[2]))
+        export_analysis(out, rows)
+        return
     for index in range(5):
         execute_cell(index)
     components = {
@@ -139,23 +199,7 @@ def main():
     if args.pilot:
         print("Pilot passed; these are not publication results.", flush=True)
         return
-    assembly = "".join(notebook["cells"][8]["source"]).split("stage3_results = {}", 1)[1]
-    exec("stage3_results = {}" + assembly, globals())
-    for index in (9, 10, 11):
-        execute_cell(index)
-    stage3_summary_df.to_csv(out / "summary.csv", index=False)
-    sig_df.to_csv(out / "qaoa_statistics.csv", index=False)
-    ranking = stage3_summary_df.sort_values(["Budget", "Mean Regret"])
-    ranking.to_csv(out / "ranking.csv", index=False)
-    # Original mean ± population SD plot and B=30 distribution plot.
-    import matplotlib.pyplot as plt
-    plt.show = lambda: None
-    for index, name in ((13, "regret_vs_budget"), (15, "regret_distribution_B30")):
-        execute_cell(index)
-        plt.savefig(out / (name + ".png"), dpi=180)
-        plt.savefig(out / (name + ".svg"))
-        plt.close("all")
-    print(f"Complete: {out}", flush=True)
+    export_analysis(out, rows)
 
 
 if __name__ == "__main__":
