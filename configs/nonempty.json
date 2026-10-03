@@ -1,0 +1,41 @@
+{
+  "protocol": "nonempty-domain-sensitivity-not-therapeutic-reformulation",
+  "stages": [
+    3
+  ],
+  "grid": [
+    64,
+    64,
+    16
+  ],
+  "allow_empty": false,
+  "zero_control": false,
+  "initial_size": 5,
+  "budgets": [
+    10,
+    20,
+    30,
+    40
+  ],
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "simulator_threads": 4,
+  "ridge": 0.001,
+  "bo_restarts": 2,
+  "bo_xi": 0.01,
+  "cma_sigma": 0.3,
+  "cma_population": 12,
+  "proposal_retry_limit": 256,
+  "qaoa_shots": 256,
+  "qaoa_maxiter": 30
+}

@@ -1,0 +1,5 @@
+# Versions observed in the existing Studio environment during this audit.
+# This is not the unknown original notebook environment, nor an upgrade request.
+numpy==2.5.3
+scipy==1.18.1
+scikit-learn==1.9.1

@@ -1,0 +1,19 @@
+{
+  "protocol": "smoke-only-not-publication-evidence",
+  "stages": [1, 2, 3],
+  "grid": [4, 4, 2],
+  "allow_empty": true,
+  "zero_control": true,
+  "initial_size": 5,
+  "budgets": [10],
+  "seeds": [0],
+  "simulator_threads": 4,
+  "ridge": 0.001,
+  "bo_restarts": 0,
+  "bo_xi": 0.01,
+  "cma_sigma": 0.3,
+  "cma_population": 12,
+  "proposal_retry_limit": 256,
+  "qaoa_shots": 64,
+  "qaoa_maxiter": 8
+}
