@@ -4,7 +4,7 @@ jobs:
   verify:
     runs-on: ubuntu-latest
     env:
-      NUMBA_NUM_THREADS: '2'
+      NUMBA_NUM_THREADS: '4'
       OPENBLAS_NUM_THREADS: '1'
       MPLBACKEND: Agg
     steps:
