@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "notebook_hashes": {
+    "stage1.ipynb": "37135175904f45dea9dc435a8312f9027333a5c27c5db7aae74c9b054dd66f07",
+    "stage2.ipynb": "44bba622f89ddb8f4a7ae4de7fafde9372241f1644e0d90fc4228983cc9f35cf",
+    "stage3.ipynb": "ae382e730009bdb33affeee4ea6399e7b11b8f06b144874acb6eb572e57bf19f"
+  },
+  "markdown_local_links": "all resolved",
+  "reference_models": "Stage 1 and Stage 2 parameters/trajectory match copied Stage 3 reference exactly",
+  "public_engine_tree": "72d70a6c201c0c6b9a70c30408c2bb1a7423f266",
+  "public_engine_commit": "3edf0f154febabf7347546944dc12e69cb7fd0ef"
+}

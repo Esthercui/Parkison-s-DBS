@@ -1,0 +1,38 @@
+{
+  "stage": 1,
+  "baseline_beta": 0.12094888118733801,
+  "simulator_seed": 0,
+  "simulator_noise_std": 0.0,
+  "fs": 10000.0000000011,
+  "grid": [
+    64,
+    64,
+    16
+  ],
+  "n_bits": 16,
+  "simulator_evaluations": 65537,
+  "knee_mask": 62926,
+  "knee_energy": 0.18314571675339847,
+  "objective_kind": "cached_simulator_objective",
+  "penalty": 5.0,
+  "qd_limit": null,
+  "domain_size": 65536,
+  "ground_truth_mask": 62926,
+  "ground_truth_cost": 0.7844227120082151,
+  "build_seconds": 9.657179500001803,
+  "signature": {
+    "grid": [
+      64,
+      64,
+      16
+    ],
+    "stage": 1,
+    "allow_empty": true,
+    "source": {
+      "dbs_benchmark/contacts.py": "f66b25ba71ade6422e2854486b1f9d9cfd4288a8b2507171706996ebce0be408",
+      "dbs_benchmark/model.py": "066ed21415c5921aba5bdcea201d2a98676479f61431852643a2a7c77725b20f",
+      "dbs_benchmark/reference.py": "e4a9cdf40bb881454ae9ff4876d44121ed86b1c768c8db85eded3d2dab36658b"
+    }
+  },
+  "npz_sha256": "64fd332869d097e9ba692f7f1953adf52bc6ac0a3fef048e23f484d2f8e40ed5"
+}

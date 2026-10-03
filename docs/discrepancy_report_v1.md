@@ -1,3 +1,5 @@
+> Historical bounded audit (October 2, 2026). Its pending-work status is superseded by [the corrected protocol](CORRECTED_PROTOCOL.md) and [fresh results](../results/RESULTS.md). The original findings are retained below.
+
 # Stage 3 discrepancy report — v1
 
 **Recommendation: present the model and this audit, not a quantum performance

@@ -1,0 +1,71 @@
+{
+  "config": {
+    "protocol": "nonempty-domain-sensitivity-not-therapeutic-reformulation",
+    "stages": [
+      3
+    ],
+    "grid": [
+      64,
+      64,
+      16
+    ],
+    "allow_empty": false,
+    "zero_control": false,
+    "initial_size": 5,
+    "budgets": [
+      10,
+      20,
+      30,
+      40
+    ],
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "simulator_threads": 4,
+    "ridge": 0.001,
+    "bo_restarts": 2,
+    "bo_xi": 0.01,
+    "cma_sigma": 0.3,
+    "cma_population": 12,
+    "proposal_retry_limit": 256,
+    "qaoa_shots": 256,
+    "qaoa_maxiter": 30
+  },
+  "source_sha256": {
+    "audit/bounded_core.py": "8f0caa16c624d7608f4f816ea54a271893e8ae4952980a3a5092a36785a190fb",
+    "dbs_benchmark/__init__.py": "c133e2ab9d6a5e0142f7f03bdf0b1229a9b2e82b94e6fb28801794717d29c39e",
+    "dbs_benchmark/cli.py": "ca94f4ad57156fa8815294abb30fc156e90e8321ca0b2662e51fe72fd2ff956c",
+    "dbs_benchmark/contacts.py": "f66b25ba71ade6422e2854486b1f9d9cfd4288a8b2507171706996ebce0be408",
+    "dbs_benchmark/model.py": "066ed21415c5921aba5bdcea201d2a98676479f61431852643a2a7c77725b20f",
+    "dbs_benchmark/optimize.py": "c539513bc40c3d0ee10e1f5dd7703731d1069c804fd06a1ff0e468049a23fa04",
+    "dbs_benchmark/reference.py": "e4a9cdf40bb881454ae9ff4876d44121ed86b1c768c8db85eded3d2dab36658b",
+    "requirements-lock.txt": "abbc5d5670b3ae8ba3ef3fef0637ad412cf8ba55dd0a80ae9275716f6dc233e3"
+  },
+  "git_commit": "2f89b91a2b7bd3fbd3e3aead9f2597c200390d24",
+  "git_dirty": true,
+  "python": "3.12.14",
+  "platform": "macOS-27.0.1-arm64-arm-64bit",
+  "packages": {
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.1",
+    "cma": "4.5.0",
+    "numba": "0.68.0",
+    "qiskit": "2.5.2",
+    "matplotlib": "3.11.2"
+  },
+  "timestamp_utc": "2026-10-03T21:40:18Z",
+  "interpretation": "Seeds repeat one model instance; no clinical or hardware validation.",
+  "published_engine_commit": "3edf0f154febabf7347546944dc12e69cb7fd0ef",
+  "published_engine_tree": "72d70a6c201c0c6b9a70c30408c2bb1a7423f266",
+  "publication_note": "The published engine Git tree is byte-identical to local execution commit 2f89b91a2b7bd3fbd3e3aead9f2597c200390d24. Results were not regenerated during publication."
+}

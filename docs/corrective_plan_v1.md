@@ -1,3 +1,5 @@
+> Historical bounded audit (October 2, 2026). Its pending-work status is superseded by [the corrected protocol](CORRECTED_PROTOCOL.md) and [fresh results](../results/RESULTS.md). The original findings are retained below.
+
 # Minimal corrective experiment plan — v1, pending Esther's approval
 
 No full rerun is authorized or executed by this plan. First decide the scientific

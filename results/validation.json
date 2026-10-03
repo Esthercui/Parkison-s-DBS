@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "verified_runs": 260,
+  "source": "fresh recorded objective accesses",
+  "sha256": {
+    "results/RESULTS.md": "832067999c13f10352fde77ed5bda562d9cd37b2a4a21c3248a876c0cb5897a7",
+    "results/current/manifest.json": "39dc8c2333c37ceeceb64e9ed309484b22a2e68a41cfdaac6acef4577c72639e",
+    "results/current/stage1_oracle.json": "c287cf18eae85231a36debc55e9fe64ebbf3e291d829bb29a0b292cbcf549b3e",
+    "results/current/stage1_oracle.npz": "64fd332869d097e9ba692f7f1953adf52bc6ac0a3fef048e23f484d2f8e40ed5",
+    "results/current/stage1_runs.jsonl": "7b09ab79c27fcc0ed3baad248a1304f612618a4c95b18e2a6d4ddd29956acf32",
+    "results/current/stage2_oracle.json": "ebbb276789117b468bc92dde76ee562bfcc630e59a223d1d35ed541c1db85ecf",
+    "results/current/stage2_oracle.npz": "b003ff5ecf6df921cece63ce6ac176258e7844bc7524ccd81bfe7d69aa1b88b3",
+    "results/current/stage2_runs.jsonl": "bebb46f8f54c538e0cf44cd0dc4070f092a251fa8bcf5897325707b408e009e9",
+    "results/current/stage3_oracle.json": "1a5729624ecf8cc37f9841ce9b26a4f3296e09c9e2fdf9c4c6de89e4b8b17ceb",
+    "results/current/stage3_oracle.npz": "634f81cc60c5e680869674c674116ee91c8b7823a10c821f89897282eff88d77",
+    "results/current/stage3_runs.jsonl": "a20339b415b888e406af9bc398755b4002777ce6256e09441a930f40684708c7",
+    "results/nonempty/manifest.json": "cc8d4422e11d252459b49e2bc0958255d02a179675caf05517818e99bda7548f",
+    "results/nonempty/stage3_oracle.json": "07b74a7a6725dab3eb82f377406275773f272da0af7ce20971041f153f9d978e",
+    "results/nonempty/stage3_oracle.npz": "f01e232c97c0dbb66e2bde79495f60335f8d4337198e6f89340b612fe538fc8e",
+    "results/nonempty/stage3_runs.jsonl": "f91fff144d5201830919f1657ca4b95bc583c76a5f7c5c957b682e8a8fd2ad9b",
+    "results/paired_comparisons.csv": "e722576ed2f553df819d2a9c9581e6d1566709c8845054e7254dae3b1bc1078f",
+    "results/provenance_checks.json": "2c8902303582fb2ca0a87df460f712ca3312b8e0e40ae3895a9d0938b0df4870",
+    "results/resources.csv": "03066540e69e397293b98f6f5b82eeebfeb42580e245c3ea0696e7bea5524066",
+    "results/summary.csv": "0c686d553a4f5db3e42965a9c15cde759e5b084aa077f3f31ba4e7de349423a5",
+    "results/tests.txt": "4ee98adc325c2e4288db4a4675f2ff4832833e5671e94a1c7b0b9123a8ed9f5a"
+  }
+}

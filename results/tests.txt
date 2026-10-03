@@ -1,0 +1,19 @@
+test_both_domains_are_explicit_and_consistent (test_bounded_audit.AuditTests.test_both_domains_are_explicit_and_consistent) ... ok
+test_cache_initialization_failure_and_post_budget (test_bounded_audit.AuditTests.test_cache_initialization_failure_and_post_budget) ... ok
+test_domain_and_array_access_cannot_bypass_budget (test_bounded_audit.AuditTests.test_domain_and_array_access_cannot_bypass_budget) ... ok
+test_exhaustive_surrogate_16_bits_known_optimum (test_bounded_audit.AuditTests.test_exhaustive_surrogate_16_bits_known_optimum) ... ok
+test_fitted_exhaustive_baseline_charges_initial_data_and_proposals (test_bounded_audit.AuditTests.test_fitted_exhaustive_baseline_charges_initial_data_and_proposals) ... ok
+test_historical_cma_batch_leak_is_blocked (test_bounded_audit.AuditTests.test_historical_cma_batch_leak_is_blocked) ... ok
+test_historical_qaoa_regular_and_fallback_accesses_are_guarded (test_bounded_audit.AuditTests.test_historical_qaoa_regular_and_fallback_accesses_are_guarded) ... ok
+test_qubo_basis_energies_offsets_and_bit_order (test_bounded_audit.AuditTests.test_qubo_basis_energies_offsets_and_bit_order) ... ok
+test_all_methods_share_domain_budget_and_seed (test_corrected.Corrected.test_all_methods_share_domain_budget_and_seed) ... ok
+test_fresh_fit_and_both_stage3_optima (test_corrected.Corrected.test_fresh_fit_and_both_stage3_optima) ... ok
+test_real_qiskit_phase_and_endianness (test_corrected.Corrected.test_real_qiskit_phase_and_endianness) ... ok
+test_reference_recurrence (test_corrected.Corrected.test_reference_recurrence) ... ok
+test_ridge_and_exhaustive_prediction (test_corrected.Corrected.test_ridge_and_exhaustive_prediction) ... ok
+test_trapezoid_compatibility (test_corrected.Corrected.test_trapezoid_compatibility) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 1.458s
+
+OK

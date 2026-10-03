@@ -1,0 +1,54 @@
+# Portfolio claim ledger
+
+Only the current corrected pipeline may supply public performance numbers.
+“Reproduced” means computed locally from the declared implementation, not
+independent scientific replication. A source statement is not proof of its claim.
+
+Commit keys (immutable):
+
+- **H:** `b5e2468320d437bce5ddec8025ba409e5a26dc5b` — historical public notebooks.
+- **A:** `6aa827e4af5b234bdb9c1b8a6583d3c8ec398acd` — bounded audit, not a corrected benchmark.
+- **C:** `2f89b91a2b7bd3fbd3e3aead9f2597c200390d24` — corrected engine used for current results; exact source hashes are also in each manifest.
+- **P:** historical March paper, SHA-256 `98092c4f55849357942911bca47b4005f7f22fd5eaadf144bfdd6a3a2739c328`; not originally committed in H.
+
+Reproduction-command keys (run from repository root in the pinned environment):
+
+- **PRIMARY:** `python -m dbs_benchmark.cli --config configs/benchmark.json --output results/current`
+- **SENSITIVITY:** `python -m dbs_benchmark.cli --config configs/nonempty.json --output results/nonempty`
+- **TABLES:** `python scripts/report.py`
+- **TESTS:** `python -m unittest discover -s tests -v`
+- **AUDIT:** `python -m audit.reviewer_example` (historical saved-fit diagnostic only)
+- **HISTORY:** `git log --all --format=fuller --stat`
+
+| CLAIM | STATUS | EVIDENCE | SOURCE | REPRODUCTION COMMAND | COMMIT | LIMITATION | SAFE WORDING |
+|---|---|---|---|---|---|---|---|
+| Collaborative simulation benchmark | VERIFIED WITH QUALIFICATION | Supplied project definition; plural paper; source modules | User request; P pp.7–11; README | HISTORY; inspect model/modules | H, C, P | Individual responsibility unresolved | Co-developed a simulation-based DBS optimization benchmark. |
+| Esther wrote/designed everything herself | DO NOT USE | No component-level attribution; no named author statement in P | History; COLLABORATION_TODO.md | HISTORY | H, A, C, P | Upload identity is insufficient | This was collaborative; individual roles are being verified. |
+| A particular collaborator or mentor did a named component | IN PROGRESS | No verified contribution record recovered | COLLABORATION_TODO.md | Human/source-history verification needed; no executable command | H, P | Do not guess names or endorsements | Omit specific attribution pending confirmation. |
+| Stage 1 searches 65,536 settings; Stage 2 has 77,504 feasible of 131,072 encodings | REPRODUCED | Fresh oracle arrays and metadata | results/current/stage1_oracle.json; stage2_oracle.json | PRIMARY; TABLES | C | Finite grids, one model | Exhaustively evaluated the declared finite search spaces. |
+| Ground truth is the global clinical or continuous optimum | DO NOT USE | Enumeration covers only declared discrete/proxy domains | CORRECTED_PROTOCOL.md | PRIMARY | C | No clinical or continuous optimization certificate | Exact minimum of this finite modeled objective. |
+| Zero stimulation is allowed in the primary Stage 3 benchmark | VERIFIED WITH QUALIFICATION | Full 2^16 source definition; no nonzero or efficacy requirement; explicit current config | H Stage 3 cells 0/4; P p.10; configs/benchmark.json | PRIMARY; TESTS | H, C, P | Benchmark interpretation; not treatment advice; no recovered prior therapeutic requirement | The primary benchmark retains the no-stimulation control. |
+| Every current method shares the declared Stage 3 domain | VERIFIED | All-method tests in both domains and run traces | tests/test_corrected.py; results/validation.json | TESTS; PRIMARY; SENSITIVITY; TABLES | C | Scope is these implementations/configurations | Every method and the oracle use the same feasible domain. |
+| Fresh fit reproduces the historical coefficients | REPRODUCED | Baseline + 41 simulator calls, coefficient agreement within 1e-12 | stage3_oracle.json; reference-recurrence tests | PRIMARY; TESTS | C compared with H | One simplified noise-free instance, nonzero fit residuals | The refitted coefficients agree numerically with the historical fit. |
+| Empty mask is the unique primary Stage 3 optimum | REPRODUCED | Positive linear/pair coefficients; 65,536-state enumeration | results/current/stage3_oracle.json; stage3_oracle.npz | PRIMARY; TABLES; TESTS | C | Cost omits intercept; zero cost is not zero beta | The current objective is minimized by zero active contacts. |
+| Nonempty domain yields contact 12, mask 4096, cost 0.1736142930 | REPRODUCED | 65,535 feasible-mask enumeration and sign argument | results/nonempty/stage3_oracle.json; tests | SENSITIVITY; TABLES; TESTS | C | A diagnostic restriction, not a justified therapeutic model | Excluding zero yields the cheapest singleton, not a difficult therapeutic benchmark. |
+| Historical “Surrogate (Exact)” was actually exhaustive in Stage 3 | SUPERSEDED | H cell 7 samples 5,000 candidates; Stage 2 similarly uses a pool | docs/discrepancy_report_v1.md; H notebooks | AUDIT; inspect H Stage 2 cell 11 / Stage 3 cell 7 | H, A | Historical execution may contain unsaved state; source/table link documented | The historical comparator was a random candidate-pool search. |
+| Current exhaustive surrogate really searches the full fitted domain | VERIFIED WITH QUALIFICATION | Full predicted array, feasible unseen argmin; independent polynomial/ridge checks | dbs_benchmark/optimize.py; tests | TESTS; PRIMARY | C | Floating-point fitted surrogate; exclusions matter; not unknown biological truth | Exactly enumerates the fitted surrogate over feasible unevaluated settings. |
+| Current QAOA phases match the fitted binary objective | VERIFIED | Correct x=(1−Z)/2 phases and actual Qiskit statevector agreement | optimize.py; audit/bounded_core.py; tests | TESTS | C | Small asymmetric gate check + algebra; no noisy hardware validation | The implemented p=1 cost circuit matches its fitted objective. |
+| Fixed budget means equal simulator/hardware resources | DO NOT USE | Separate offline setup, queries, predictions, circuits and shots | results/resources.csv; protocol | PRIMARY; SENSITIVITY; TABLES | C | Cached objectives; Stage 3 is fitted QUBO | Methods share objective-query budgets; internal resources differ. |
+| Current runs obey budgets and shared initialization | REPRODUCED | 260 traces validated; 40 unique observations each; shared first five; no denied reads | results/validation.json; run JSONL files | PRIMARY; SENSITIVITY; TABLES | C | 10/20/30 are prefixes, not independent full runs | Comparisons use identical charged initial observations and bounded scalar access. |
+| Stage 1 CMA-ES has lowest mean regret at B=40 | REPRODUCED | 0.058542 ± 0.033961 sample SD; ten seeds | results/summary.csv | PRIMARY; TABLES | C | Sample mean only; GA/BO close; not all budgets/instances | CMA-ES had the lowest observed mean regret at B=40 in this run. |
+| Stage 2 QAOA becomes strongest or gains a proven structural advantage | DO NOT USE | Exhaustive surrogate has lower B=40 mean; objectives and domains change together | results/summary.csv; paired_comparisons.csv | PRIMARY; TABLES | C | No controlled causal or multi-instance comparison | This corrected Stage 2 comparison does not demonstrate a QAOA lead. |
+| Stage 2 exhaustive surrogate has lowest B=40 sample mean | REPRODUCED | 0.060433 ± 0.029445; QAOA 0.073358 ± 0.020653 | results/summary.csv | PRIMARY; TABLES | C | Modest sample, several overlapping paired intervals | Exhaustive surrogate search had the lowest observed mean at B=40. |
+| Stage 3 QAOA is strongest among tested methods | SUPERSEDED | Primary all-method tie; nonempty BO/exhaustive/QAOA/sparse-first all solve by 40 | results/RESULTS.md; old P pp.16–18 | PRIMARY; SENSITIVITY; TABLES | H, P → C | Shared zero control explains primary tie | The corrected benchmark does not support the historical Stage 3 superiority claim. |
+| QAOA reduces regret 75–80% versus exact baseline | DO NOT USE | Misnamed historical baseline and unequal protocols; new result lacks claimed advantage | P p.17; corrected summary | PRIMARY; SENSITIVITY; TABLES | P → C | Old percentages cannot transfer to new pipeline | Omit the historical improvement percentages. |
+| All methods tie at zero in primary Stage 3 | REPRODUCED | 10/10 seeds, all budgets, all seven methods including diagnostic | current/stage3_runs.jsonl | PRIMARY; TABLES | C | Known control supplied in initialization; not general algorithm equivalence | With a shared no-stimulation control, all methods attain zero regret. |
+| QAOA, BO, exhaustive surrogate and sparse-first solve nonempty Stage 3 by B=40 | REPRODUCED | Each 10/10 optimum hits; raw traces | nonempty/stage3_runs.jsonl; summary.csv | SENSITIVITY; TABLES | C | Same singleton objective, not therapeutic efficacy | Several classical baselines match QAOA on this sensitivity check. |
+| Repeated seeds quantify patient/model variation | DO NOT USE | Identical fixed simulator and geometry across seeds | Configs and manifests | PRIMARY | C | Seeds vary initialization/optimizer/sampling only | Variation is across optimizer seeds on one modeled instance. |
+| Quantum hardware, quantum speedup, clinical benefit | DO NOT USE | Classical statevector execution; no hardware or patient records | optimize.py; protocol; resources.csv | TESTS; PRIMARY | C | Simulator proxy benchmark only | QAOA was simulated; no hardware advantage or clinical efficacy was established. |
+| This is the first rigorous benchmark in the field | DO NOT USE | Historical paper assertion; no systematic novelty review performed | P pp.2/19 | No reproduction establishes priority | P | Literature priority not verified | A reproducible ground-truth benchmark; omit “first.” |
+| The current objective is an adequate therapeutic optimization problem | IN PROGRESS | Trivial optima, hand-set proxies and no efficacy threshold | Current Stage 3 oracle; protocol | PRIMARY; SENSITIVITY | C | Scientific reformulation and external review needed | The present objective needs reformulation before making therapeutic-optimization claims. |
+| Fourteen automated tests and 260 validated optimizer runs | REPRODUCED | Saved test log; validation.json checks traces and source hashes | results/tests.txt; results/validation.json | TESTS; TABLES | C | Local automated checks, not independent peer review | Local tests and recorded-run validation passed for this corrected implementation. |
+| The March paper remains an accurate report of the current results | SUPERSEDED | Fresh ranks and model diagnosis contradict its central progression | PAPER_REVISION.md; current tables | PRIMARY; SENSITIVITY; TABLES | P → C | Manuscript has not been rewritten | The historical manuscript requires substantive revision. |
+
+Published engine source: [`3edf0f154febabf7347546944dc12e69cb7fd0ef`](https://github.com/Esthercui/Parkison-s-DBS/tree/3edf0f154febabf7347546944dc12e69cb7fd0ef). Its Git tree is byte-identical to execution commit C (`2f89b91`); publication changes commit metadata/parentage, not executed source.
