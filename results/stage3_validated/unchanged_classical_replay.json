@@ -1,0 +1,5 @@
+{
+  "status": "PASS",
+  "unchanged_runs": 600,
+  "comparison": "Every observation for Random, GA, BO, CMA-ES, Pool exactly equals the pinned controlled data"
+}

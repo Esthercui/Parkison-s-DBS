@@ -1,0 +1,30 @@
+stage3.ipynb:cell1:13: DeprecationWarning: `trapz` is deprecated. Use `trapezoid` instead, or one of the numerical integration functions in `scipy.integrate`.
+test_exhaustive_selection_and_tie_rule (test_stage3_validation.Stage3ValidationTests.test_exhaustive_selection_and_tie_rule) ... ok
+test_forced_infeasible_samples_use_original_fallback (test_stage3_validation.Stage3ValidationTests.test_forced_infeasible_samples_use_original_fallback) ... ok
+test_full_space_energy_equivalence (test_stage3_validation.Stage3ValidationTests.test_full_space_energy_equivalence) ... ok
+test_instrumentation_does_not_change_proposals (test_stage3_validation.Stage3ValidationTests.test_instrumentation_does_not_change_proposals) ... ok
+test_matched_initial_observations (test_stage3_validation.Stage3ValidationTests.test_matched_initial_observations) ... ok
+test_shared_fit_matches_original (test_stage3_validation.Stage3ValidationTests.test_shared_fit_matches_original) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 10.492s
+
+OK
+Stage 3 config loaded.
+N_CONTACTS = 16
+Budgets = [10, 20, 30, 40]
+Baseline beta computed.
+Fitted beta_ratio(A_eff) = c0 + c1*A + c2*A^2
+c0 = 0.9437580303537102 c1 = -0.11458817038088676 c2 = 0.022290112770454024
+Observed beta_ratio range: 0.8145621333530403 to 0.999999999991732
+Contact metadata initialized.
+QD proxy min/max: 0.16666666666666666 0.29761904761904756
+Q shape: (16, 16)
+Oracle over 65536 masks built in 0.25 seconds
+Exactly six: 8008
+Both admissibility conditions: 6881
+GROUND TRUTH cost: 1.5690394714699
+Chosen contacts: [2, 5, 8, 10, 12, 15]
+Modes: [np.str_('ring'), np.str_('ring'), np.str_('directional'), np.str_('directional'), np.str_('directional'), np.str_('directional')]
+Number active: 6
+Fitted BetaRatio: 0.8187975018236102

@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "baseline": "b43e30bdccba85767f3a8835ab30e313a60b9977",
+  "preserved_files": [
+    "README.md",
+    "STAGE3_RESULTS.md",
+    "requirements-stage3.txt",
+    "results/stage3_controlled/distribution.csv",
+    "results/stage3_controlled/domain.json",
+    "results/stage3_controlled/fit.npz",
+    "results/stage3_controlled/manifest.json",
+    "results/stage3_controlled/oracle.npz",
+    "results/stage3_controlled/qaoa_statistics.csv",
+    "results/stage3_controlled/ranking.csv",
+    "results/stage3_controlled/regret_distribution_B30.png",
+    "results/stage3_controlled/regret_distribution_B30.svg",
+    "results/stage3_controlled/regret_vs_budget.png",
+    "results/stage3_controlled/regret_vs_budget.svg",
+    "results/stage3_controlled/runs.jsonl",
+    "results/stage3_controlled/scope_checks.json",
+    "results/stage3_controlled/summary.csv",
+    "results/stage3_controlled/validation.json",
+    "run_stage3.py",
+    "stage1.ipynb",
+    "stage2.ipynb"
+  ],
+  "notebook_cells_0_through_6_unchanged": true,
+  "surrogate_pool_ast_unchanged": true,
+  "manuscript_modified": false
+}

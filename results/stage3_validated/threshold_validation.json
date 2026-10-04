@@ -1,0 +1,31 @@
+{
+  "threshold": 0.8228585,
+  "fitted_crossings": [
+    1.48274574773669,
+    3.65801650685251
+  ],
+  "direct_crossings": [
+    {
+      "bracket_left": 0.92,
+      "bracket_right": 0.93,
+      "amplitude": 0.9232682051094552,
+      "direction": "downward",
+      "direct_beta_ratio": 0.8228585000000181
+    }
+  ],
+  "fitted_to_nearest_direct": [
+    {
+      "fitted_amplitude": 1.48274574773669,
+      "nearest_direct_amplitude": 0.9232682051094552,
+      "difference_fitted_minus_direct": 0.5594775426272349
+    },
+    {
+      "fitted_amplitude": 3.65801650685251,
+      "nearest_direct_amplitude": 0.9232682051094552,
+      "difference_fitted_minus_direct": 2.734748301743055
+    }
+  ],
+  "interpretation": "Benchmark efficacy threshold, not a clinical treatment threshold",
+  "dense_bracketing_step": 0.01,
+  "root_tolerance": 1e-10
+}

@@ -1,0 +1,29 @@
+{
+  "starting_commit": "b43e30bdccba85767f3a8835ab30e313a60b9977",
+  "starting_status": "clean",
+  "branch": "research/stage3-methodology-validation",
+  "timestamp_utc": "2026-10-04T05:51:26.421266+00:00",
+  "preserved_sha256": {
+    "README.md": "41d7e9bc45eba3611430f9e90debba4a62af4edc3e5f747da732d4aea034d5ea",
+    "STAGE3_RESULTS.md": "bf0986ec0202ca6a2a11503c168ab2572e385698f085655fd830aad1c278c251",
+    "requirements-stage3.txt": "1a8591ab000822cc76d301ea67fb9019126eef6b92fbeef1c971577b65bb6055",
+    "results/stage3_controlled/distribution.csv": "4bef83512e9b8dbd48b9fa4699656cae9ef4b487197660067e3e11ea0255cf26",
+    "results/stage3_controlled/domain.json": "9fbe22c4b0aa5ccd6574bf28be4aad58a1cafad67aeca811c26a051bbf828b5b",
+    "results/stage3_controlled/fit.npz": "ac67abce2d087a13d340102e4994c9b4b8e38a902adf3deb8bd45c7ca27140e9",
+    "results/stage3_controlled/manifest.json": "615f321d6aa51a2874fe6d7a46ade96b9976ac9ff10d7d1ab5602378a9e78e5f",
+    "results/stage3_controlled/oracle.npz": "04d06ca50dbda149162c6837b55b144f5f6b5cf836e116a5ad9dd9d4fd4bf4bf",
+    "results/stage3_controlled/qaoa_statistics.csv": "bc7833f6b3ac55aaf61627ab49d8fadfb3b3890b9fb48533a8605d4576510570",
+    "results/stage3_controlled/ranking.csv": "2cfbb3181688e941298249a0d05ea3123a2b4f72fa9f6325095f06dc571f1b2a",
+    "results/stage3_controlled/regret_distribution_B30.png": "d5b77520747c2faf79ef5d102087dc309d8f9a04184631dcc3c42936a683dc8d",
+    "results/stage3_controlled/regret_distribution_B30.svg": "1e49f7dc3158567dafebbf3cb69d54079755f37e94ff8b651e6c0ed91e2637a5",
+    "results/stage3_controlled/regret_vs_budget.png": "9b2812ec395dc483936869abfce73a15b514a2549b1280c62dcb6824e09ddda3",
+    "results/stage3_controlled/regret_vs_budget.svg": "abcd5c13d1cd7bfd6ae9c9d5ff448c79e4164af7947f49168cb3c6f1048204cb",
+    "results/stage3_controlled/runs.jsonl": "c574d0fb30d5fa4fd831e3858ffe131fe2a20b9c108c2a267df20a520e48a4ad",
+    "results/stage3_controlled/scope_checks.json": "9946b362ef2703b06227d9535508b9ddba1e15f250d4bda7b127899c49d9e100",
+    "results/stage3_controlled/summary.csv": "0e805bee62dca20812076a0376d9a9b9d4da77ad9e02680ccd8f80fac5e48397",
+    "results/stage3_controlled/validation.json": "a7be141f69f71aac0d420f1923cf3b3551fa652bba4d9761f431139ef0563d0e",
+    "run_stage3.py": "6864af088486d4ff775a479af1ce3ca4c5bbf88664b2e17fbfb950d94ff70fb5",
+    "stage1.ipynb": "37135175904f45dea9dc435a8312f9027333a5c27c5db7aae74c9b054dd66f07",
+    "stage2.ipynb": "44bba622f89ddb8f4a7ae4de7fafde9372241f1644e0d90fc4228983cc9f35cf"
+  }
+}

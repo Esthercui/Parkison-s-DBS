@@ -227,8 +227,8 @@ def figures(out):
         # Distribution over adaptive proposal steps; not an independent-seed CI.
         axes[0].boxplot(100*t.admissible_shot_fraction, positions=[index], widths=.42,
             showfliers=False, patch_artist=True, boxprops={"facecolor": "#B3D9EA"}, medianprops={"color": "black"})
-        axes[0].scatter(index, 100*t.admissible_shot_fraction.mean(), marker="D", color="#0072B2", s=26)
-        axes[0].scatter(index+.17, 100*t.exact_admissible_mass.mean(), marker="x", color="#D55E00", s=30)
+        axes[0].scatter(index, 100*t.admissible_shot_fraction.mean(), marker="D", color="#0072B2", s=26, zorder=4)
+        axes[0].scatter(index+.17, 100*t.exact_admissible_mass.mean(), marker="x", color="#D55E00", s=30, zorder=4)
     axes[0].set(xticks=range(4), xticklabels=BUDGETS, xlabel="Evaluation budget", ylabel="Admissible final shots (%)", ylim=(0, 100), title="Final 1,024-shot proposal batches")
     axes[0].plot([], [], "D", color="#0072B2", label="Mean sampled fraction")
     axes[0].plot([], [], "x", color="#D55E00", label="Mean exact statevector mass")

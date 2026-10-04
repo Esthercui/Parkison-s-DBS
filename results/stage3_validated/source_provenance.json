@@ -1,0 +1,7 @@
+{
+  "controlled_parent": "b43e30bdccba85767f3a8835ab30e313a60b9977",
+  "local_execution_commit": "9eb5a6e0d4bb97b7d69ca79a1b8a1d84468948e2",
+  "public_source_commit": "8ac127c6e2ff4c0a994929a272b693c39c410171",
+  "identical_source_tree": "c486f949ae12297cca792f7f5b59871fbc92375f",
+  "note": "Connector publication changes commit metadata, not source bytes. Final delivery adds evidence/report and a plot-marker z-order change only."
+}

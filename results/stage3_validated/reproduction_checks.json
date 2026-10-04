@@ -1,0 +1,39 @@
+{
+  "status": "PASS",
+  "fresh_environment": "Python 3.12 venv, requirements-stage3.txt installation successful",
+  "targeted_tests": 6,
+  "fresh_environment_byte_identical_files": [
+    "qubo_ising_validation.csv",
+    "beta_fit_validation.csv",
+    "cardinality_sensitivity.csv",
+    "fit_vs_direct_feasibility.csv",
+    "threshold_refinement.csv",
+    "ground_truth.json",
+    "pilot_qaoa_trace.csv"
+  ],
+  "fresh_environment_pilot_runs_matching_primary": 14,
+  "commands_executed": [
+    "venv creation",
+    "pip install -r requirements-stage3.txt",
+    "unittest test_stage3_validation -v",
+    "mapping",
+    "model",
+    "benchmark --pilot",
+    "primary benchmark (original pinned environment)",
+    "statistics",
+    "figures",
+    "check"
+  ],
+  "figures_visually_inspected": [
+    "stage3_regret_vs_budget",
+    "stage3_qaoa_vs_surrogate_exhaustive",
+    "stage3_beta_fit_validation",
+    "stage3_cardinality_sensitivity",
+    "stage3_qaoa_feasibility_and_fallback"
+  ],
+  "statistical_known_value_checks": [
+    "exact paired sign randomization on 10 positive pairs: p=2/1024",
+    "all ties: p=1",
+    "Holm known p-value fixture"
+  ]
+}

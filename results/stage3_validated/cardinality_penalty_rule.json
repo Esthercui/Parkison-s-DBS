@@ -1,0 +1,10 @@
+{
+  "quadratic_cardinality_penalty_used": false,
+  "lambda_value": null,
+  "reason": "Pinned baseline has no cardinality penalty in the phase QUBO; none added.",
+  "unchanged_internal_rejection_barrier": 1000,
+  "barrier_scope": "Classical COBYLA sampled objective, for infeasible/seen masks; not encoded in cost Hamiltonian.",
+  "hard_rule": "Exactly k=6 and fitted BetaRatio<=0.8228585 for every true evaluation",
+  "adequacy_check": "For every fitted surrogate, assert abs(c)+sum(abs(a))+sum(abs(b)) < 1000. Never tune barrier.",
+  "penalized_qubo_enumeration": "Not applicable: no penalized phase QUBO is used."
+}

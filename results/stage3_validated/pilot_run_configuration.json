@@ -1,0 +1,52 @@
+{
+  "baseline": "b43e30bdccba85767f3a8835ab30e313a60b9977",
+  "execution_commit": "b43e30bdccba85767f3a8835ab30e313a60b9977",
+  "source_sha256": {
+    "stage3.ipynb": "4d94ae2f1e10285a549dc89c3ffe6ca7f81a593dc8daa56b6dd0819cb902e460",
+    "stage3_validation_core.py": "6ffe250feaee36a2e7a40600eda91fa59fc393358c8542d168a071a5cd8a7314",
+    "requirements-stage3.txt": "1a8591ab000822cc76d301ea67fb9019126eef6b92fbeef1c971577b65bb6055"
+  },
+  "runner_sha256": "9d53943cceef0a1e7e3d78edf0309afd2314df6748f774b1cab240e9df1b0bdc",
+  "methods": [
+    "Random",
+    "GA",
+    "BO",
+    "CMA-ES",
+    "Surrogate (Pool)",
+    "Surrogate (Exhaustive)",
+    "QAOA (p=1)"
+  ],
+  "budgets": [
+    10
+  ],
+  "seeds": [
+    0,
+    1
+  ],
+  "workers": 7,
+  "primary_cardinality": 6,
+  "fitted_beta_limit": 0.8228585,
+  "p": 1,
+  "training_shots": 256,
+  "final_shots": 1024,
+  "cobyla_maxiter": 30,
+  "mixer": "Independent Rx(2*beta) on each qubit",
+  "ridge": 0.001,
+  "surrogate_pool": 5000,
+  "fallback_pool": 5000,
+  "initial_rule": "min(max(10,B//4), B-1); same original rejection-sampling stream per seed",
+  "exhaustive_tie_break": "Lowest mask integer among exactly equal floating predictions",
+  "statistical_plan": {
+    "bootstrap_resamples": 10000,
+    "paired_permutation_resamples": 100000,
+    "seed": 20261003,
+    "tie_tolerance": 1e-12,
+    "principal_holm_family": "QAOA vs Exhaustive, four budgets",
+    "sd_ddof": 0
+  },
+  "optional_robustness": "Not part of required primary run; no post-result algorithm tuning",
+  "frozen_qaoa_selection": "COBYLA on sampled surrogate expectation with existing 1000 infeasible/seen barrier; final sampled minimum predicted cost, then historical fallback",
+  "pilot": true,
+  "python": "3.12.14",
+  "platform": "macOS-27.0.1-arm64-arm-64bit"
+}
