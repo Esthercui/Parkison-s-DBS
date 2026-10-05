@@ -1,0 +1,27 @@
+{
+  "global_uniform_0_to_4": {
+    "n": 401,
+    "amplitude_min": 0.0,
+    "amplitude_max": 4.0,
+    "r_squared": 0.7611882489693367,
+    "rmse": 0.021294003168235286,
+    "mae": 0.017489551806887046,
+    "max_abs_error": 0.05635398415712045
+  },
+  "primary_k6_interval": {
+    "n": 129,
+    "amplitude_min": 1.4,
+    "amplitude_max": 1.72,
+    "r_squared": -986.8381882507133,
+    "rmse": 0.005985589260672804,
+    "mae": 0.004834977510019351,
+    "max_abs_error": 0.011614131882348055
+  },
+  "fresh_fit_points": 41,
+  "new_cached_amplitude_simulations": 1269,
+  "threshold_refinement_simulations": 6,
+  "unique_mask_amplitudes": 1217,
+  "all_masks_classified": 65536,
+  "primary_ground_truth_direct_ratio": 0.8149348670459028,
+  "cache_key": "Exact 0.0025 amplitude lattice from two-decimal FOCUS metadata; uniform-grid keys rounded to 12 decimals"
+}

@@ -1,0 +1,85 @@
+CELL 0
+Grid size: (64, 64, 16, 2) = 131072
+
+
+CELL 4
+Baseline peak freq: 19.53125000000215
+Building oracle N=131072 with 24 workers...
+Oracle built in 319.05s
+Feasible points: 77504 / 131072
+beta_ratio range (feasible): 0.7590422931983027 to 1.0001569216698758
+energy range (feasible): 0.0 to 0.5777777777777778
+
+
+CELL 5
+Pareto points: 98
+Knee: {'mode': 'ring', 'f_hz': 159.04761904761904, 'A': 0.5, 'pw_us': 240.0, 'beta_ratio': 0.8228584997287205, 'energy': 0.09817754262198705, 'qd': 0.3333333333333333}
+
+
+CELL 6
+GROUND TRUTH: {'E_knee': 0.09817754262198705, 'penalty': 5.0, 'cost_star': 0.8228584997287205, 'best_setting': {'mode': 'ring', 'f_hz': 159.04761904761904, 'A': 0.5, 'pw_us': 240.0, 'beta_ratio': 0.8228584997287205, 'energy': 0.09817754262198705, 'qd': 0.3333333333333333}}
+
+
+CELL 8
+random               mean_final_cost=0.8909  mean_regret=0.0681  std_cost=0.0220
+ga                   mean_final_cost=0.8992  mean_regret=0.0763  std_cost=0.0247
+
+
+CELL 10
+cma_es               mean_final_cost=0.8840  mean_regret=0.0611  std_cost=0.0214
+
+
+CELL 11
+surrogate_exact      mean_final_cost=0.9193  mean_regret=0.0964  std_cost=0.0223
+
+
+CELL 12
+surrogate_qaoa_p1    mean_final_cost=0.8870  mean_regret=0.0641  std_cost=0.0255
+surrogate_qaoa_p2    mean_final_cost=0.8930  mean_regret=0.0701  std_cost=0.0196
+
+
+CELL 16
+
+============================================================
+BUDGET = 10
+============================================================
+random             mean_regret=0.1033  std_regret=0.0242
+ga                 mean_regret=0.0998  std_regret=0.0339
+bo                 mean_regret=0.1194  std_regret=0.0280
+cma_es             mean_regret=0.0839  std_regret=0.0240
+surrogate_exact    mean_regret=0.0979  std_regret=0.0270
+surrogate_qaoa_p1  mean_regret=0.0974  std_regret=0.0237
+
+============================================================
+BUDGET = 20
+============================================================
+random             mean_regret=0.0841  std_regret=0.0263
+ga                 mean_regret=0.0827  std_regret=0.0248
+bo                 mean_regret=0.0995  std_regret=0.0306
+cma_es             mean_regret=0.0749  std_regret=0.0246
+surrogate_exact    mean_regret=0.0948  std_regret=0.0207
+surrogate_qaoa_p1  mean_regret=0.0860  std_regret=0.0205
+
+============================================================
+BUDGET = 30
+============================================================
+random             mean_regret=0.0736  std_regret=0.0205
+ga                 mean_regret=0.0775  std_regret=0.0240
+bo                 mean_regret=0.0827  std_regret=0.0310
+cma_es             mean_regret=0.0658  std_regret=0.0181
+surrogate_exact    mean_regret=0.0912  std_regret=0.0220
+surrogate_qaoa_p1  mean_regret=0.0751  std_regret=0.0188
+
+============================================================
+BUDGET = 40
+============================================================
+random             mean_regret=0.0696  std_regret=0.0224
+ga                 mean_regret=0.0721  std_regret=0.0245
+bo                 mean_regret=0.0683  std_regret=0.0306
+cma_es             mean_regret=0.0602  std_regret=0.0202
+surrogate_exact    mean_regret=0.0883  std_regret=0.0223
+surrogate_qaoa_p1  mean_regret=0.0659  std_regret=0.0244
+
+
+CELL 17
+<Figure size 850x520 with 1 Axes>

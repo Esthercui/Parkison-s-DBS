@@ -1,0 +1,78 @@
+{
+  "75": [
+    {
+      "line": 97,
+      "text": "\\widehat{\\br}(A)=0.9437580303537102-0.11458817038088676A+0.022290112770454024A^2."
+    },
+    {
+      "line": 141,
+      "text": "\\textbf{Constraint handling is separate.} The frozen phase QUBO contains no quadratic cardinality penalty or fitted-efficacy constraint penalty. Hard admissibility is enforced by classical filtering. During angle optimization, inadmissible or already-seen samples receive a rejection score of 1,000 in the sampled classical expectation, not in the phase Hamiltonian. It would therefore be incorrect to claim that hard constraints were transformed into the circuit. The recorded bound $|c|+\\sum|a_i|+\\sum|b_{ij}|$ never exceeds 10.502754, so the rejection score exceeds every possible admissible surrogate prediction. The X mixer does not preserve cardinality."
+    },
+    {
+      "line": 169,
+      "text": "The Stage 2 optimum is a ring-mode setting near $f=159.05$ Hz, $A=0.5$, and $PW=240\\,\\mu$s, with $J^*=0.8228584997287205$. CMA-ES again has the lowest mean regret at all budgets: 0.0839, 0.0749, 0.0658, and 0.0602. Historical QAOA means are 0.0974, 0.0860, 0.0751, and 0.0659 (Table~\\ref{tab:s2}; Figure~\\ref{fig:s2}). At $B=40$, the descriptive gap to CMA-ES is 0.0057, compared with 0.0321 in Stage 1. This comparison suggests greater competitiveness in the constrained extension, but is not a formal cross-stage treatment effect and does not guarantee superiority as complexity increases."
+    },
+    {
+      "line": 179,
+      "text": "The unique fitted-admissible optimum is mask 38180, binary \\texttt{1001010100100100}, with zero-based active indices $[2,5,8,10,12,15]$. Its effective amplitude is 1.57; fitted beta ratio is 0.8187975018236102; total objective is 1.5690394714699. The direct-simulator beta ratio at this mask is 0.8149348670459028, used for validation only. This is an exact optimum of the specified fitted benchmark, not an optimal patient treatment. Objective components appear in Appendix~\\ref{app:params}."
+    },
+    {
+      "line": 214,
+      "text": "The validated Stage 3 result is scientifically substantive even though it is non-separating. It shows that a correctly implemented simulated $p=1$ QAOA proposal method can remain competitive under a small query budget without relying on fallback, while a strong full-domain surrogate comparator removes the basis for a superiority claim. The original apparent 75--80\\% Stage 3 regret advantage does not survive the corrected domain, implementation, and stronger comparison. The combined validation does not identify the separate causal contribution of each correction; it establishes what the final controlled evidence supports."
+    },
+    {
+      "line": 274,
+      "text": "The following four panels reproduce all rows of the validated descriptive summary. Each row has 30 seeds and 100\\% admissible selected evaluations. SD is population SD; IQR is the 75th minus 25th percentile. Mean intervals are 95\\% percentile-bootstrap intervals. Ranks describe sample means only. ``Full-Domain'' maps to ``Surrogate (Exhaustive)'' in the frozen data; ``QAOA'' denotes the simulated hybrid $p=1$ method. Rounding is for display only."
+    }
+  ],
+  "80": [
+    {
+      "line": 82,
+      "text": "Stage 1 spans 64 frequencies from 60 to 180 Hz, 64 amplitudes from 0 to 1.5 model units, and 16 pulse widths from 50 to 240 $\\mu$s: 65,536 settings in total. Exhaustive simulation provides an oracle. The normalized energy proxy is $E=(A/1.5)^2(f/180)(PW/240\\,\\mu\\mathrm{s})$. A Pareto front over beta ratio and energy supplies a knee energy $E_{\\mathrm{knee}}$. The scalar objective is"
+    },
+    {
+      "line": 97,
+      "text": "\\widehat{\\br}(A)=0.9437580303537102-0.11458817038088676A+0.022290112770454024A^2."
+    },
+    {
+      "line": 179,
+      "text": "The unique fitted-admissible optimum is mask 38180, binary \\texttt{1001010100100100}, with zero-based active indices $[2,5,8,10,12,15]$. Its effective amplitude is 1.57; fitted beta ratio is 0.8187975018236102; total objective is 1.5690394714699. The direct-simulator beta ratio at this mask is 0.8149348670459028, used for validation only. This is an exact optimum of the specified fitted benchmark, not an optimal patient treatment. Objective components appear in Appendix~\\ref{app:params}."
+    },
+    {
+      "line": 183,
+      "text": "At $B=40$, mean regret is 0.052564 for Pool, 0.058041 for QAOA, and 0.059358 for Full-Domain. Full-domain minimization of a learned surrogate need not yield the best realized objective trajectory: restricted candidate sampling can alter exploration. Here, competitive denotes the observed range of regret, not a formal equivalence or noninferiority margin. These descriptive ranks do not establish population-level superiority. Figure~\\ref{fig:s3} shows the uncertainty in the mean estimates."
+    },
+    {
+      "line": 199,
+      "text": "The fitted downward threshold crossing is $A=1.482746$; the direct crossing is $A=0.923268$, a difference of 0.559478 amplitude units. The quadratic also crosses upward at approximately 3.658017, while the validated direct grid shows no corresponding upward crossing through $A=4$. That upturn is a fit artifact within the checked range. Direct-model validation reveals approximation error relative to a simplified simulator; it is not clinical validation of either the fitted curve or the inherited threshold."
+    },
+    {
+      "line": 214,
+      "text": "The validated Stage 3 result is scientifically substantive even though it is non-separating. It shows that a correctly implemented simulated $p=1$ QAOA proposal method can remain competitive under a small query budget without relying on fallback, while a strong full-domain surrogate comparator removes the basis for a superiority claim. The original apparent 75--80\\% Stage 3 regret advantage does not survive the corrected domain, implementation, and stronger comparison. The combined validation does not identify the separate causal contribution of each correction; it establishes what the final controlled evidence supports."
+    }
+  ],
+  "QAOA strongest": [],
+  "lowest regret at every budget": [],
+  "quantum advantage": [],
+  "quantum superiority": [
+    {
+      "line": 57,
+      "text": "This study asks under what problem structures a quantum-assisted proposal layer is useful relative to strong classical alternatives. Weak baselines, inappropriate admissibility rules, or an inaccurate efficacy model can make an optimizer appear attractive for reasons unrelated to useful search behavior. We therefore treat domain validation, implementation verification, and strong-baseline comparison as parts of the scientific contribution. The study evolves from smooth tuning through clinically motivated constraints to a controlled combinatorial benchmark; it does not assume an inevitable transition to quantum superiority."
+    }
+  ],
+  "clinically necessary": [
+    {
+      "line": 207,
+      "text": "At $k=4$, the fit accepts none of 1,820 masks whereas direct simulation accepts 1,817. At $k=5$, the fit accepts none of 4,368, while direct simulation accepts all. At $k=6$, the fit accepts 6,881 of 8,008 and direct simulation accepts all 8,008. At $k=7$, both accept all 11,440 (Table~\\ref{tab:cardinality}). Thus 1,127 six-contact masks are rejected by the fit despite passing the direct criterion. These results do not support interpreting six contacts as physiologically or clinically necessary. We retain $k=6$ as a fixed-cardinality benchmark producing a nontrivial fitted-admissible domain. The sensitivity study is a domain/model check, not a new optimizer experiment."
+    }
+  ],
+  "exact surrogate solver": [],
+  "computational speedup": [],
+  "statistically equivalent": [],
+  "treatment recommendation": [
+    {
+      "line": 224,
+      "text": "At the present scale, the evidence does not justify choosing quantum optimization merely because contact selection admits a QUBO encoding. Strong classical optimization and full-domain surrogate scoring remain practical default comparators; this experiment supplies no statistically supported reason to prefer QAOA. This is a research-method selection conclusion, not a treatment recommendation."
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "bootstrap_resamples": 10000,
+  "paired_permutation_resamples": 100000,
+  "seed": 20261003,
+  "tie_tolerance": 1e-12,
+  "principal_holm_family": "QAOA vs Exhaustive, four budgets",
+  "sd_ddof": 0,
+  "bootstrap": "Percentile CI for seed-level mean, 10000 resamples",
+  "pairing": "QAOA minus comparator; same seed and exact initial observations; independent adaptive histories",
+  "randomization": "Two-sided sign randomization of paired differences; exact if <=16 nonzero pairs, otherwise 100000 draws with plus-one correction",
+  "ties": "abs(difference)<=1e-12; ties set to zero in randomization; observed differences retained for estimates and bootstrap",
+  "holm": "Separate four-budget families: Exhaustive principal, Pool secondary; no claims based on ranks alone",
+  "initialization_at_b10": "9 shared observations and 1 adaptive evaluation; other budgets start with 10",
+  "uncertainty_scope": "Variation over algorithm seeds on one deterministic fitted benchmark, not biological uncertainty"
+}

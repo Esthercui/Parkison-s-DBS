@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "runs": 840,
+  "selected_true_evaluations": 21000,
+  "all_selected_evaluations_admissible": true,
+  "all_initial_samples_matched": true,
+  "qaoa_adaptive_steps": 1830,
+  "final_batch_shots": 1873920,
+  "internal_circuits": 52999,
+  "total_internal_shots": 15441664,
+  "raw_final_counts_reconciled": true,
+  "model_masks_classified": 65536,
+  "figures": 15,
+  "stage1_stage2_simulator_objective_unchanged": true,
+  "controlled_results_preserved": true,
+  "manuscript_unchanged": true,
+  "mapping_max_error": 2.842170943040401e-14
+}

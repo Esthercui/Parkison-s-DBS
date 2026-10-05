@@ -1,0 +1,15 @@
+\begin{table}[htbp]\centering
+\caption{Validated Stage 3 mean regret $\pm$ population SD, 30 seeds per cell. Pool and Full-Domain denote classical surrogate proposal methods; QAOA is the simulated hybrid $p=1$ method. All selected queries are admissible.}\label{tab:s3}
+\scriptsize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrrrr}\toprule
+Method & $B=10$ & $B=20$ & $B=30$ & $B=40$ \\ \midrule
+Random & $0.174012\pm0.063906$ & $0.144140\pm0.060162$ & $0.127619\pm0.048665$ & $0.113079\pm0.045784$ \\
+GA & $0.205983\pm0.102295$ & $0.125186\pm0.060365$ & $0.099263\pm0.052292$ & $0.075283\pm0.038768$ \\
+BO & $0.177022\pm0.080698$ & $0.128352\pm0.061696$ & $0.103829\pm0.043677$ & $0.082164\pm0.050326$ \\
+CMA-ES & $0.184742\pm0.085346$ & $0.143246\pm0.069175$ & $0.109434\pm0.058656$ & $0.098881\pm0.048787$ \\
+Pool & $0.179932\pm0.067134$ & $0.123577\pm0.061877$ & $0.066622\pm0.039385$ & $0.052564\pm0.038273$ \\
+Full-Domain & $0.179932\pm0.067134$ & $0.111238\pm0.066653$ & $0.076354\pm0.039815$ & $0.059358\pm0.034858$ \\
+QAOA (p=1) & $0.177592\pm0.069727$ & $0.122321\pm0.038240$ & $0.080358\pm0.047602$ & $0.058041\pm0.040225$ \\
+\bottomrule\end{tabular}
+\end{table}

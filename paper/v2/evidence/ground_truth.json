@@ -1,0 +1,36 @@
+{
+  "total_masks": 65536,
+  "exactly_six_masks": 8008,
+  "admissible_masks": 6881,
+  "percentage_full_space": 10.49957275390625,
+  "optimal_mask": 38180,
+  "active_contacts_zero_based": [
+    2,
+    5,
+    8,
+    10,
+    12,
+    15
+  ],
+  "binary_msb_first": "1001010100100100",
+  "effective_amplitude": 1.57,
+  "fitted_beta_ratio": 0.8187975018236102,
+  "cost": 1.5690394714699,
+  "objective_components": {
+    "efficacy_without_c0": -0.12496052853009998,
+    "count": 1.08,
+    "energy": 0.09325000000000001,
+    "risk": 0.154,
+    "overlap": 0.36674999999999996,
+    "charge_density": 0.0
+  },
+  "omitted_constant": 0.9437580303537102,
+  "coefficients": [
+    0.9437580303537102,
+    -0.11458817038088676,
+    0.022290112770454024
+  ],
+  "threshold": 0.8228585,
+  "optimum_count": 1,
+  "description": "Primary fixed-cardinality, efficacy-screened benchmark; not a clinical necessity"
+}

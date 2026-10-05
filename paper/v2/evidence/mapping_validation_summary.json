@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "configurations": 65536,
+  "tests": {
+    "true_objective": {
+      "max_abs_error": 1.4210854715202004e-14,
+      "mean_abs_error": 1.614273167415759e-15,
+      "passed": 65536
+    },
+    "initial_surrogate": {
+      "max_abs_error": 8.881784197001252e-15,
+      "mean_abs_error": 8.858473850292814e-16,
+      "passed": 65536
+    },
+    "asymmetric_fixture": {
+      "max_abs_error": 2.842170943040401e-14,
+      "mean_abs_error": 2.266666599008951e-15,
+      "passed": 65536
+    }
+  },
+  "max_abs_error": 2.842170943040401e-14,
+  "mean_abs_error": 1.5889290504846639e-15,
+  "actual_16_qubit_statevector_max_error": 6.059128614320848e-17,
+  "installed_gate_conventions": "verified by matrices",
+  "source_sha256": {
+    "stage3.ipynb": "4d94ae2f1e10285a549dc89c3ffe6ca7f81a593dc8daa56b6dd0819cb902e460",
+    "stage3_validation_core.py": "6ffe250feaee36a2e7a40600eda91fa59fc393358c8542d168a071a5cd8a7314",
+    "requirements-stage3.txt": "1a8591ab000822cc76d301ea67fb9019126eef6b92fbeef1c971577b65bb6055"
+  }
+}

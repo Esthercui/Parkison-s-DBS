@@ -1,0 +1,43 @@
+CELL 1
+Grid size: (64, 64, 16) = 65536
+
+
+CELL 4
+Baseline peak frequency: 19.53125000000215
+Building oracle for 65536 points with 24 workers...
+Oracle built in 268.69 seconds
+beta_ratio range: 0.746917735138448 to 1.0001569216698758
+energy range: 0.0 to 1.0
+
+
+CELL 5
+Pareto points: 109
+Knee point: {'f_hz': 176.1904761904762, 'A': 0.6666666666666666, 'pw_us': 227.33333333333331, 'beta_ratio': 0.7844227120082152, 'energy': 0.1831457167533985}
+
+
+CELL 7
+GROUND TRUTH (scalar objective):
+{'E_knee': 0.1831457167533985, 'penalty': 5.0, 'cost_star': 0.7844227120082152, 'best_setting': {'f_hz': 176.1904761904762, 'A': 0.6666666666666666, 'pw_us': 227.33333333333331, 'beta_ratio': 0.7844227120082152, 'energy': 0.1831457167533985}}
+
+
+CELL 8
+random               mean_final_cost=0.8503  mean_regret=0.0659  std_cost=0.0239
+ga                   mean_final_cost=0.8392  mean_regret=0.0548  std_cost=0.0249
+surrogate_exact      mean_final_cost=0.8418  mean_regret=0.0574  std_cost=0.0451
+
+
+CELL 10
+bo                   mean_final_cost=0.8386  mean_regret=0.0541  std_cost=0.0356
+
+
+CELL 13
+cma_es               mean_final_cost=0.8317  mean_regret=0.0473  std_cost=0.0138
+
+
+CELL 16
+/tmp/ipykernel_1400/1310132293.py:190: DeprecationWarning: Sampler has been deprecated as of Aer 0.15, please use SamplerV2 instead.
+  run_method_summary(lambda cf,b,s: run_surrogate_qaoa(cf,b,s,p_layers=1, shots=128, maxiter=15, max_pairs=50), "surrogate_qaoa_p1_fast")
+
+
+CELL 16
+surrogate_qaoa_p1_fast mean_final_cost=0.8489  mean_regret=0.0645  std_cost=0.0252

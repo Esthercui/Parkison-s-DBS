@@ -1,0 +1,619 @@
+{
+  "10.1186/s12984-021-00873-9": {
+    "DOI": "10.1186/s12984-021-00873-9",
+    "title": [
+      "Semi-automated approaches to optimize deep brain stimulation parameters in Parkinson’s disease"
+    ],
+    "author": [
+      {
+        "ORCID": "https://orcid.org/0000-0003-1702-1521",
+        "authenticated-orcid": false,
+        "given": "Kenneth H.",
+        "family": "Louie",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Matthew N.",
+        "family": "Petrucci",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Logan L.",
+        "family": "Grado",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Chiahao",
+        "family": "Lu",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Paul J.",
+        "family": "Tuite",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Andrew G.",
+        "family": "Lamperski",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Colum D.",
+        "family": "MacKinnon",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Scott E.",
+        "family": "Cooper",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Theoden I.",
+        "family": "Netoff",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2021,
+          5,
+          21
+        ]
+      ]
+    },
+    "container-title": [
+      "Journal of NeuroEngineering and Rehabilitation"
+    ],
+    "volume": "18",
+    "issue": "1",
+    "page": null,
+    "article-number": "83",
+    "URL": "https://doi.org/10.1186/s12984-021-00873-9"
+  },
+  "10.1523/JNEUROSCI.0431-18.2018": {
+    "DOI": "10.1523/jneurosci.0431-18.2018",
+    "title": [
+      "Pallidal Deep-Brain Stimulation Disrupts Pallidal Beta Oscillations and Coherence with Primary Motor Cortex in Parkinson's Disease"
+    ],
+    "author": [
+      {
+        "ORCID": "https://orcid.org/0000-0001-6112-3002",
+        "authenticated-orcid": false,
+        "given": "Doris D.",
+        "family": "Wang",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Coralie",
+        "family": "de Hemptinne",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Svjetlana",
+        "family": "Miocinovic",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Jill L.",
+        "family": "Ostrem",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Nicholas B.",
+        "family": "Galifianakis",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Marta",
+        "family": "San Luciano",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0003-2733-4003",
+        "authenticated-orcid": false,
+        "given": "Philip A.",
+        "family": "Starr",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2018,
+          4,
+          16
+        ]
+      ]
+    },
+    "container-title": [
+      "The Journal of Neuroscience"
+    ],
+    "volume": "38",
+    "issue": "19",
+    "page": "4556-4568",
+    "article-number": null,
+    "URL": "https://doi.org/10.1523/jneurosci.0431-18.2018"
+  },
+  "10.1038/s41598-025-95315-0": {
+    "DOI": "10.1038/s41598-025-95315-0",
+    "title": [
+      "A quantum inspired machine learning approach for multimodal Parkinson’s disease screening"
+    ],
+    "author": [
+      {
+        "given": "Diya",
+        "family": "Vatsavai",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Anya",
+        "family": "Iyer",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Ashwin A.",
+        "family": "Nair",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2025,
+          4,
+          4
+        ]
+      ]
+    },
+    "container-title": [
+      "Scientific Reports"
+    ],
+    "volume": "15",
+    "issue": "1",
+    "page": null,
+    "article-number": "11660",
+    "URL": "https://doi.org/10.1038/s41598-025-95315-0"
+  },
+  "10.1093/bioadv/vbae208": {
+    "DOI": "10.1093/bioadv/vbae208",
+    "title": [
+      "QOMIC: quantum optimization for motif identification"
+    ],
+    "author": [
+      {
+        "ORCID": "https://orcid.org/0009-0000-9647-7011",
+        "authenticated-orcid": false,
+        "given": "Hoang M",
+        "family": "Ngo",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "Department of Computer and Information Science and Engineering, University of Florida , Gainesville, FL 32611,",
+            "place": [
+              "United States"
+            ]
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Tamim",
+        "family": "Khatib",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Department of Computer and Information Science and Engineering, University of Florida , Gainesville, FL 32611,",
+            "place": [
+              "United States"
+            ]
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "My T",
+        "family": "Thai",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Department of Computer and Information Science and Engineering, University of Florida , Gainesville, FL 32611,",
+            "place": [
+              "United States"
+            ]
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Tamer",
+        "family": "Kahveci",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Department of Computer and Information Science and Engineering, University of Florida , Gainesville, FL 32611,",
+            "place": [
+              "United States"
+            ]
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2024,
+          12,
+          24
+        ]
+      ]
+    },
+    "container-title": [
+      "Bioinformatics Advances"
+    ],
+    "volume": "5",
+    "issue": "1",
+    "page": null,
+    "article-number": "vbae208",
+    "URL": "https://doi.org/10.1093/bioadv/vbae208"
+  },
+  "10.1371/journal.pcbi.1011674": {
+    "DOI": "10.1371/journal.pcbi.1011674",
+    "title": [
+      "From dawn till dusk: Time-adaptive bayesian optimization for neurostimulation"
+    ],
+    "author": [
+      {
+        "ORCID": "https://orcid.org/0000-0003-1969-3188",
+        "authenticated-orcid": true,
+        "given": "John E.",
+        "family": "Fleming",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0009-0007-6861-3056",
+        "authenticated-orcid": true,
+        "given": "Ines",
+        "family": "Pont Sanchis",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0009-0002-0944-2123",
+        "authenticated-orcid": true,
+        "given": "Oscar",
+        "family": "Lemmens",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Angus",
+        "family": "Denison-Smith",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0003-4628-0303",
+        "authenticated-orcid": true,
+        "given": "Timothy O.",
+        "family": "West",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Timothy",
+        "family": "Denison",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-1641-115X",
+        "authenticated-orcid": true,
+        "given": "Hayriye",
+        "family": "Cagnan",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2023,
+          12,
+          13
+        ]
+      ]
+    },
+    "container-title": [
+      "PLOS Computational Biology"
+    ],
+    "volume": "19",
+    "issue": "12",
+    "page": "e1011674",
+    "article-number": null,
+    "URL": "https://doi.org/10.1371/journal.pcbi.1011674"
+  },
+  "10.1016/j.brs.2016.02.004": {
+    "DOI": "10.1016/j.brs.2016.02.004",
+    "title": [
+      "Programming Deep Brain Stimulation for Parkinson's Disease: The Toronto Western Hospital Algorithms"
+    ],
+    "author": [
+      {
+        "given": "Marina",
+        "family": "Picillo",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Andres M.",
+        "family": "Lozano",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Nancy",
+        "family": "Kou",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Renato",
+        "family": "Puppi Munhoz",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0001-5346-0180",
+        "authenticated-orcid": false,
+        "given": "Alfonso",
+        "family": "Fasano",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2016,
+          5
+        ]
+      ]
+    },
+    "container-title": [
+      "Brain Stimulation"
+    ],
+    "volume": "9",
+    "issue": "3",
+    "page": "425-437",
+    "article-number": null,
+    "URL": "https://doi.org/10.1016/j.brs.2016.02.004"
+  }
+}
